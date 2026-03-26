@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Miller Research Group — Imperial College London</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --imperial:#003E74;--imperial-dark:#002147;--imperial-mid:#1a5a8f;
+  --teal:#1d7a7a;--teal-light:#2ba5a5;
+  --warm:#f7f3ed;--cream:#faf8f4;--paper:#fffefa;
+  --ink:#1a1a2e;--text:#2d2d44;--text-mid:#555570;--text-light:#8888a0;
+  --border:#e2ddd5;--border-light:#eeebe5;
+  --accent:#c45d2c;--accent-light:#e8a07a;
+  --serif:'Playfair Display',Georgia,serif;
+  --sans:'Source Sans 3','Source Sans Pro',system-ui,sans-serif;
+  --mono:'IBM Plex Mono',monospace;
+  --max:1140px;--radius:6px;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--cream);color:var(--text);line-height:1.65;overflow-x:hidden}
+a{color:var(--imperial);text-decoration:none;transition:color .25s}
+a:hover{color:var(--teal)}
+.container{max-width:var(--max);margin:0 auto;padding:0 2rem}
+
+/* NAV */
+.site-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,254,250,0.88);backdrop-filter:blur(14px) saturate(1.4);-webkit-backdrop-filter:blur(14px) saturate(1.4);border-bottom:1px solid var(--border-light);transition:box-shadow .3s}
+.site-nav.scrolled{box-shadow:0 1px 12px rgba(0,0,0,0.06)}
+.nav-inner{max-width:var(--max);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:60px}
+.nav-brand{font-family:var(--serif);font-size:1.05rem;font-weight:700;color:var(--imperial-dark)}
+.nav-brand em{font-style:italic;color:var(--teal);font-weight:600}
+.nav-links{display:flex;gap:.15rem;list-style:none}
+.nav-links a{font-size:.78rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--text-mid);padding:.45rem .7rem;border-radius:var(--radius);transition:color .2s,background .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--imperial);background:rgba(0,62,116,.05)}
+.hamburger{display:none;background:none;border:none;cursor:pointer;padding:.5rem}
+.hamburger span{display:block;width:20px;height:2px;background:var(--text);margin:4px 0;border-radius:1px;transition:.3s}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;background:var(--imperial-dark)}
+.hero-bg{position:absolute;inset:0;background:linear-gradient(155deg,var(--imperial-dark) 0%,#0a3260 35%,#164b78 65%,var(--imperial-mid) 100%)}
+.hero-bg::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 70% 25%,rgba(29,122,122,.12) 0%,transparent 70%),radial-gradient(ellipse 40% 60% at 15% 80%,rgba(196,93,44,.06) 0%,transparent 60%)}
+.hero-pattern{position:absolute;inset:0;opacity:.035;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100'%3E%3Cpath d='M28 66L0 50L0 16L28 0L56 16L56 50L28 66L28 100' fill='none' stroke='%23ffffff' stroke-width='.6'/%3E%3Cpath d='M28 0L28 34L0 50L0 84L28 100L56 84L56 50L28 34' fill='none' stroke='%23ffffff' stroke-width='.6'/%3E%3C/svg%3E");background-size:56px 100px}
+.hero-content{position:relative;z-index:2;max-width:780px;padding:8rem 2rem 6rem}
+.hero-badge{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--mono);font-size:.68rem;font-weight:500;color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:.2em;margin-bottom:2rem;opacity:0;animation:rise .8s .2s forwards}
+.hero-badge::before{content:'';display:block;width:28px;height:1px;background:var(--teal-light)}
+.hero h1{font-family:var(--serif);font-size:clamp(2.6rem,5.5vw,4.5rem);font-weight:800;color:#fff;line-height:1.08;margin-bottom:.6rem;opacity:0;animation:rise .8s .35s forwards}
+.hero h1 .hl{display:inline;background:linear-gradient(120deg,var(--teal-light),#5ec4c4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-sub{font-family:var(--serif);font-size:clamp(1.05rem,1.8vw,1.35rem);font-weight:400;font-style:italic;color:rgba(255,255,255,.6);margin-bottom:2.5rem;line-height:1.5;opacity:0;animation:rise .8s .5s forwards}
+.hero-pills{display:flex;flex-wrap:wrap;gap:.45rem;margin-bottom:2.5rem;opacity:0;animation:rise .8s .65s forwards}
+.pill{font-size:.7rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:rgba(255,255,255,.7);padding:.4rem .9rem;border-radius:100px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04);transition:border-color .3s,background .3s}
+.pill:hover{border-color:rgba(43,165,165,.4);background:rgba(43,165,165,.08)}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap;opacity:0;animation:rise .8s .8s forwards}
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.75rem 1.6rem;border-radius:var(--radius);font-size:.82rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;cursor:pointer;border:none;transition:transform .25s,box-shadow .25s,background .25s}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:var(--teal-light);color:var(--imperial-dark)}
+.btn-primary:hover{background:#34b8b8;box-shadow:0 4px 20px rgba(43,165,165,.25);color:var(--imperial-dark)}
+.btn-outline{background:transparent;color:rgba(255,255,255,.75);border:1px solid rgba(255,255,255,.2)}
+.btn-outline:hover{border-color:rgba(255,255,255,.4);color:#fff}
+.hero-deco{position:absolute;right:6%;top:50%;transform:translateY(-50%);width:320px;height:320px;opacity:.07}
+
+/* SECTIONS */
+.section{padding:5.5rem 0}
+.section-alt{background:var(--warm)}
+.section-dark{background:var(--imperial-dark);color:#fff}
+.section-header{margin-bottom:2.5rem}
+.section-header .label{font-family:var(--mono);font-size:.68rem;font-weight:500;text-transform:uppercase;letter-spacing:.22em;color:var(--teal);margin-bottom:.5rem;display:block}
+.section-dark .section-header .label{color:var(--teal-light)}
+.section-header h2{font-family:var(--serif);font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:700;color:var(--ink);line-height:1.15}
+.section-dark .section-header h2{color:#fff}
+.section-header h2 em{font-style:italic;color:var(--teal)}
+.section-dark .section-header h2 em{color:var(--teal-light)}
+.section-header .lead{font-size:1.02rem;color:var(--text-mid);max-width:650px;margin-top:.75rem;line-height:1.7}
+.section-dark .section-header .lead{color:rgba(255,255,255,.6)}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:.9fr 1.5fr;gap:3.5rem;align-items:start}
+.about-card{background:var(--paper);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;position:sticky;top:80px}
+.about-card-top{background:linear-gradient(135deg,var(--imperial-dark),var(--imperial-mid));padding:2.5rem 2rem;text-align:center;position:relative}
+.about-card-top::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--teal-light),var(--accent-light))}
+.initials{font-family:var(--serif);font-size:3.5rem;font-weight:800;color:var(--teal-light);line-height:1;margin-bottom:.5rem}
+.about-card-top .name{font-family:var(--serif);font-size:1.15rem;font-weight:600;color:#fff}
+.about-card-top .role{font-size:.78rem;color:rgba(255,255,255,.55);margin-top:.25rem}
+.about-card-body{padding:1.5rem 1.75rem}
+.stat-row{display:flex;justify-content:space-between;padding:.65rem 0;border-bottom:1px solid var(--border-light)}
+.stat-row:last-child{border-bottom:none}
+.stat-row .stat-label{font-size:.78rem;color:var(--text-light);font-weight:500}
+.stat-row .stat-val{font-family:var(--serif);font-size:1.1rem;font-weight:700;color:var(--imperial)}
+.about-text p{color:var(--text);font-size:.97rem;margin-bottom:1.1rem;line-height:1.75}
+.about-text p strong{color:var(--ink);font-weight:600}
+.about-timeline{margin-top:2rem;padding-top:2rem;border-top:1px solid var(--border)}
+.tl-item{display:flex;gap:1rem;margin-bottom:1.1rem;font-size:.88rem;color:var(--text-mid)}
+.tl-year{flex-shrink:0;width:52px;font-family:var(--mono);font-size:.75rem;font-weight:500;color:var(--teal);padding-top:.1rem}
+.tl-item strong{color:var(--ink)}
+
+/* RESEARCH */
+.research-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+.r-card{background:var(--paper);border:1px solid var(--border);border-radius:var(--radius);padding:1.75rem;position:relative;overflow:hidden;transition:transform .3s,box-shadow .3s,border-color .3s}
+.r-card:hover{transform:translateY(-3px);box-shadow:0 8px 28px rgba(0,62,116,.06);border-color:var(--teal-light)}
+.r-card-bar{position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--imperial),var(--teal-light));transform:scaleX(0);transform-origin:left;transition:transform .4s cubic-bezier(.22,.61,.36,1)}
+.r-card:hover .r-card-bar{transform:scaleX(1)}
+.r-card-icon{width:44px;height:44px;border-radius:10px;margin-bottom:1.1rem;background:linear-gradient(135deg,rgba(0,62,116,.08),rgba(29,122,122,.08));display:flex;align-items:center;justify-content:center}
+.r-card-icon svg{width:22px;height:22px;stroke:var(--teal);fill:none;stroke-width:1.6}
+.r-card h3{font-family:var(--serif);font-size:1.15rem;font-weight:700;color:var(--ink);margin-bottom:.45rem;line-height:1.3}
+.r-card p{font-size:.86rem;color:var(--text-mid);line-height:1.65}
+
+/* NEWS */
+.news-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem}
+.n-card{background:var(--paper);border:1px solid var(--border);border-radius:var(--radius);padding:1.75rem;transition:border-color .3s}
+.n-card:hover{border-color:var(--teal-light)}
+.n-card .date{font-family:var(--mono);font-size:.68rem;color:var(--text-light);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.5rem}
+.n-card h3{font-family:var(--serif);font-size:1.05rem;font-weight:600;color:var(--ink);line-height:1.4;margin-bottom:.4rem}
+.n-card p{font-size:.85rem;color:var(--text-mid);line-height:1.6}
+.tag{display:inline-block;margin-top:.6rem;font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--accent);background:rgba(196,93,44,.06);padding:.2rem .55rem;border-radius:3px}
+
+/* PUBLICATIONS */
+.pub-item{display:grid;grid-template-columns:56px 1fr;gap:1rem;padding:1.35rem 0;border-bottom:1px solid var(--border-light)}
+.pub-item:first-child{border-top:1px solid var(--border-light)}
+.pub-year{font-family:var(--mono);font-size:.72rem;font-weight:500;color:var(--teal);padding-top:.15rem}
+.pub-title{font-family:var(--serif);font-size:1rem;font-weight:600;color:var(--ink);line-height:1.4;margin-bottom:.25rem}
+.pub-authors{font-size:.82rem;color:var(--text-mid);margin-bottom:.15rem}
+.pub-journal{font-size:.8rem;color:var(--text-light);font-style:italic}
+.pub-journal b{font-style:normal;font-weight:600;color:var(--imperial)}
+.pub-award{display:inline-flex;align-items:center;gap:.35rem;margin-top:.4rem;font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);background:rgba(196,93,44,.06);padding:.2rem .6rem;border-radius:3px}
+.pub-award svg{width:12px;height:12px;fill:var(--accent)}
+.pub-footer{margin-top:1.5rem;font-size:.88rem;color:var(--text-mid)}
+.pub-footer a{font-weight:600}
+
+/* PEOPLE */
+.people-intro{font-size:.95rem;color:var(--text-mid);max-width:650px;margin-bottom:2rem;line-height:1.7}
+.people-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1.1rem}
+.p-card{background:var(--paper);border:1px solid var(--border);border-radius:var(--radius);padding:1.4rem;text-align:center;transition:transform .3s,border-color .3s}
+.p-card:hover{transform:translateY(-2px);border-color:var(--teal-light)}
+.p-card.is-pi{border-bottom:3px solid var(--teal)}
+.p-avatar{width:64px;height:64px;border-radius:50%;margin:0 auto .8rem;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:1.2rem;font-weight:700}
+.p-card.is-pi .p-avatar{background:linear-gradient(135deg,var(--imperial-dark),var(--imperial-mid));color:var(--teal-light)}
+.p-card:not(.is-pi) .p-avatar{background:linear-gradient(135deg,rgba(0,62,116,.08),rgba(29,122,122,.12));color:var(--imperial)}
+.p-name{font-family:var(--serif);font-size:.95rem;font-weight:600;color:var(--ink)}
+.p-role{font-size:.72rem;color:var(--text-light);margin-top:.2rem;text-transform:uppercase;letter-spacing:.04em}
+
+/* PARTNERS */
+.partners-wrap{text-align:center}
+.partner-grid{display:flex;flex-wrap:wrap;gap:.75rem;justify-content:center;margin-top:2rem}
+.partner-chip{font-size:.82rem;font-weight:600;color:var(--text-mid);padding:.6rem 1.25rem;border-radius:var(--radius);border:1px solid var(--border);background:var(--paper);transition:border-color .3s,color .3s}
+.partner-chip:hover{border-color:var(--teal-light);color:var(--imperial)}
+.iconic-banner{margin-top:3rem;padding:2rem 2.5rem;border-radius:var(--radius);background:linear-gradient(135deg,rgba(0,62,116,.04),rgba(29,122,122,.04));border:1px solid rgba(29,122,122,.15);text-align:left;max-width:780px;margin-left:auto;margin-right:auto}
+.iconic-banner h3{font-family:var(--serif);font-size:1.15rem;font-weight:700;color:var(--imperial);margin-bottom:.4rem}
+.iconic-banner p{font-size:.88rem;color:var(--text-mid);line-height:1.65}
+.iconic-banner .amount{font-family:var(--mono);font-size:.75rem;font-weight:500;color:var(--teal);margin-top:.6rem;display:inline-block}
+
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;margin-top:2rem}
+.contact-text p{color:rgba(255,255,255,.6);font-size:.95rem;line-height:1.7;margin-bottom:1.5rem}
+.contact-detail{display:flex;gap:.8rem;margin-bottom:1.25rem;align-items:flex-start}
+.cd-icon{width:36px;height:36px;flex-shrink:0;border-radius:8px;background:rgba(43,165,165,.1);display:flex;align-items:center;justify-content:center}
+.cd-icon svg{width:16px;height:16px;stroke:var(--teal-light);fill:none;stroke-width:1.8}
+.cd-label{display:block;font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.4);margin-bottom:.1rem;font-weight:500}
+.cd-value{color:rgba(255,255,255,.85);font-size:.9rem}
+.cd-value a{color:var(--teal-light)}
+.cd-value a:hover{color:#5ec4c4}
+.ext-links{display:flex;flex-wrap:wrap;gap:.65rem;margin-top:2rem}
+.ext-link{display:inline-flex;align-items:center;gap:.4rem;padding:.55rem 1.1rem;border-radius:var(--radius);font-size:.78rem;font-weight:600;letter-spacing:.02em;color:var(--teal-light);border:1px solid rgba(43,165,165,.2);transition:background .3s,border-color .3s}
+.ext-link:hover{background:rgba(43,165,165,.06);border-color:rgba(43,165,165,.4);color:var(--teal-light)}
+.contact-map{border-radius:var(--radius);overflow:hidden;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03);min-height:300px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;text-align:center}
+.contact-map svg{margin-bottom:1rem;opacity:.4}
+.contact-map .map-name{font-family:var(--serif);font-size:1.1rem;font-weight:600;color:rgba(255,255,255,.85);margin-bottom:.35rem}
+.contact-map .map-addr{font-size:.82rem;color:rgba(255,255,255,.45);line-height:1.6}
+.phd-banner{margin-top:2.5rem;padding:1.5rem 1.75rem;border-radius:var(--radius);background:rgba(43,165,165,.06);border:1px solid rgba(43,165,165,.15)}
+.phd-banner h4{font-family:var(--serif);font-size:1rem;font-weight:600;color:var(--teal-light);margin-bottom:.3rem}
+.phd-banner p{font-size:.85rem;color:rgba(255,255,255,.55);line-height:1.6}
+
+/* FOOTER */
+.site-footer{background:var(--ink);padding:2rem;text-align:center;font-size:.75rem;color:rgba(255,255,255,.35);border-top:1px solid rgba(255,255,255,.05)}
+.site-footer a{color:var(--teal-light)}
+
+/* ANIMATIONS */
+@keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .65s,transform .65s}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-d1{transition-delay:.1s}.reveal-d2{transition-delay:.2s}.reveal-d3{transition-delay:.3s}.reveal-d4{transition-delay:.4s}
+
+/* RESPONSIVE */
+@media(max-width:960px){
+  .about-grid{grid-template-columns:1fr;max-width:600px}
+  .about-card{position:static}
+  .research-grid{grid-template-columns:1fr 1fr}
+  .contact-grid{grid-template-columns:1fr}
+}
+@media(max-width:680px){
+  .nav-links{display:none;position:absolute;top:60px;left:0;right:0;flex-direction:column;padding:1rem 1.5rem;gap:.25rem;background:rgba(255,254,250,.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--border-light)}
+  .nav-links.open{display:flex}
+  .hamburger{display:block}
+  .research-grid{grid-template-columns:1fr}
+  .news-grid{grid-template-columns:1fr}
+  .section{padding:4rem 0}
+  .hero-content{padding:7rem 1.5rem 4rem}
+  .hero-deco{display:none}
+}
+</style>
+</head>
+<body>
+
+<nav class="site-nav" id="siteNav">
+  <div class="nav-inner">
+    <a href="#hero" class="nav-brand">Miller <em>Group</em></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#news">News</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#people">People</a></li>
+      <li><a href="#partners">Partners</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="hamburger" id="burger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<section class="hero" id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-pattern"></div>
+  <svg class="hero-deco" viewBox="0 0 320 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="160" cy="80" r="28" stroke="#fff" stroke-width="1"/><circle cx="70" cy="200" r="22" stroke="#fff" stroke-width="1"/><circle cx="250" cy="220" r="25" stroke="#fff" stroke-width="1"/><circle cx="280" cy="100" r="16" stroke="#fff" stroke-width="1"/><circle cx="40" cy="100" r="12" stroke="#fff" stroke-width="1"/><circle cx="180" cy="290" r="14" stroke="#fff" stroke-width="1"/>
+    <line x1="160" y1="108" x2="82" y2="184" stroke="#fff" stroke-width=".7"/><line x1="160" y1="108" x2="242" y2="200" stroke="#fff" stroke-width=".7"/><line x1="160" y1="80" x2="264" y2="100" stroke="#fff" stroke-width=".7"/><line x1="52" y1="100" x2="70" y2="180" stroke="#fff" stroke-width=".7"/><line x1="250" y1="245" x2="194" y2="280" stroke="#fff" stroke-width=".7"/><line x1="92" y1="210" x2="180" y2="278" stroke="#fff" stroke-width=".7"/>
+  </svg>
+  <div class="hero-content container">
+    <div class="hero-badge"><span>Imperial College London · Department of Chemistry</span></div>
+    <h1>Miller<br><span class="hl">Research Group</span></h1>
+    <p class="hero-sub">Applied synthesis at the intersection of chemistry, engineering &amp; medicine</p>
+    <div class="hero-pills">
+      <span class="pill">Flow Chemistry</span><span class="pill">Homogeneous Catalysis</span><span class="pill">Photocatalysis</span><span class="pill">Microfluidics</span><span class="pill">Radiolabelling &amp; PET Imaging</span><span class="pill">Coordination Chemistry</span>
+    </div>
+    <div class="hero-actions">
+      <a href="#research" class="btn btn-primary">Explore Our Research</a>
+      <a href="#contact" class="btn btn-outline">Join the Group</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-card reveal">
+        <div class="about-card-top">
+          <div class="initials">PM</div>
+          <div class="name">Dr Philip W. Miller</div>
+          <div class="role">Associate Professor (Reader) · Applied Synthesis</div>
+        </div>
+        <div class="about-card-body">
+          <div class="stat-row"><span class="stat-label">Publications</span><span class="stat-val">60+</span></div>
+          <div class="stat-row"><span class="stat-label">Citations</span><span class="stat-val">~4,000</span></div>
+          <div class="stat-row"><span class="stat-label">ORCID</span><span class="stat-val" style="font-size:.78rem;font-family:var(--mono)"><a href="https://orcid.org/0000-0002-8394-2516" target="_blank">0000-0002-8394-2516</a></span></div>
+        </div>
+      </div>
+      <div class="about-text">
+        <div class="section-header"><span class="label">About</span><h2>Dr Philip W. <em>Miller</em></h2></div>
+        <p><strong>Philip Miller is an Associate Professor in Applied Synthesis</strong> within the Department of Chemistry at Imperial College London. His research group operates at the intersection of chemistry, engineering, and medicine — developing innovative approaches in catalysis, flow chemistry, and microfluidics to tackle challenges in chemical synthesis and medical imaging.</p>
+        <p>Philip obtained his BSc and PhD from Queen's University of Belfast. In 2004, he joined Imperial College as a postdoctoral researcher, where he pioneered the development of microfluidic reactors for radiolabelling applications. He was subsequently awarded a prestigious <strong>EPSRC Life Sciences Interface Fellowship</strong> (2007–2011), held jointly at Imperial College and Aarhus University PET Centre in Denmark.</p>
+        <p>His research programme spans organometallic chemistry, photocatalysis, and reactor engineering. Recent work has included the development of sustainable methods for repurposing greenhouse gases such as trifluoromethane (HCF₃), the design of open-source 3D-printed photoreactors, and catalytic carbonylation strategies for peptide synthesis.</p>
+        <div class="about-timeline">
+          <div class="tl-item"><span class="tl-year">2022</span><div><strong>Associate Professor (Reader)</strong>, Imperial College London</div></div>
+          <div class="tl-item"><span class="tl-year">2017</span><div><strong>Senior Lecturer</strong>, Imperial College London</div></div>
+          <div class="tl-item"><span class="tl-year">2012</span><div><strong>Lecturer</strong>, Imperial College London</div></div>
+          <div class="tl-item"><span class="tl-year">2007</span><div><strong>EPSRC Life Sciences Interface Fellow</strong>, Imperial &amp; Aarhus University</div></div>
+          <div class="tl-item"><span class="tl-year">2004</span><div><strong>Postdoctoral Researcher</strong>, Imperial College London</div></div>
+          <div class="tl-item"><span class="tl-year">2004</span><div><strong>PhD &amp; BSc</strong>, Queen's University of Belfast</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="research">
+  <div class="container">
+    <div class="section-header"><span class="label">Research</span><h2>Research <em>Themes</em></h2><p class="lead">Our work integrates synthetic chemistry with engineering and digital technologies to develop practical solutions for chemical manufacturing and healthcare.</p></div>
+    <div class="research-grid">
+      <div class="r-card reveal"><div class="r-card-bar"></div>
+        <div class="r-card-icon"><svg viewBox="0 0 24 24"><path d="M4 12h16M8 4v16M16 4v16" stroke-linecap="round"/></svg></div>
+        <h3>Flow Chemistry</h3>
+        <p>Developing continuous flow methods for scalable, safe chemical synthesis — from organolithium reactions and hazardous intermediates to telescoped multi-step processes. Our work within the <strong>IConIC Prosperity Partnership</strong> aims to transform chemical manufacturing.</p>
+      </div>
+      <div class="r-card reveal reveal-d1"><div class="r-card-bar"></div>
+        <div class="r-card-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v4m0 12v4M2 12h4m12 0h4"/></svg></div>
+        <h3>Homogeneous Catalysis</h3>
+        <p>Investigating transition metal–catalysed transformations including carbonylation reactions, cross-coupling methods, and novel catalytic strategies for sustainable C–C and C–N bond formation.</p>
+      </div>
+      <div class="r-card reveal reveal-d2"><div class="r-card-bar"></div>
+        <div class="r-card-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 2v3m0 14v3M2 12h3m14 0h3M4.93 4.93l2.12 2.12m9.9 9.9l2.12 2.12M4.93 19.07l2.12-2.12m9.9-9.9l2.12-2.12"/></svg></div>
+        <h3>Photocatalysis</h3>
+        <p>Harnessing visible light for radical-mediated transformations via photoredox catalysis. Our open-source 3D-printed <strong>M-Arc photoreactor</strong> delivers reproducible photochemistry accessible to all researchers.</p>
+      </div>
+      <div class="r-card reveal"><div class="r-card-bar"></div>
+        <div class="r-card-icon"><svg viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="8" rx="1.5"/><path d="M7 8V5a2 2 0 012-2h6a2 2 0 012 2v3M10 12h4"/></svg></div>
+        <h3>Microfluidics &amp; Reactor Design</h3>
+        <p>Designing and fabricating microfluidic reactor systems for precise parameter control, enhanced safety with energetic materials, and rapid reaction optimisation using inline analytics.</p>
+      </div>
+      <div class="r-card reveal reveal-d1"><div class="r-card-bar"></div>
+        <div class="r-card-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+        <h3>Coordination Chemistry</h3>
+        <p>Synthesising and studying novel metal complexes — including unusual Pd–Zn clusters, phosphine-substituted organolithium reagents, and fluorinated organometallics — to unlock new reactivity.</p>
+      </div>
+      <div class="r-card reveal reveal-d2"><div class="r-card-bar"></div>
+        <div class="r-card-icon"><svg viewBox="0 0 24 24"><path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"/><path d="M9 2h6v4H9z"/><circle cx="12" cy="14" r="3"/></svg></div>
+        <h3>Radiolabelling &amp; PET Imaging</h3>
+        <p>Developing radiolabelling strategies for Positron Emission Tomography using carbon-11 and fluorine-18 tracers, combining flow microreactor technology with medical imaging applications.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="news">
+  <div class="container">
+    <div class="section-header"><span class="label">News &amp; Highlights</span><h2>Latest <em>Highlights</em></h2></div>
+    <div class="news-grid">
+      <div class="n-card reveal">
+        <div class="date">2026</div>
+        <h3>Repurposing a Greenhouse Gas: Defluoroalkylation of HCF₃ Published in Angew. Chem.</h3>
+        <p>Our collaborative work with the Crimmin group converts trifluoromethane — a potent greenhouse gas with 14,600× the warming potential of CO₂ — into valuable fluoroalkene building blocks via continuous flow methods.</p>
+        <span class="tag">Angew. Chem. Int. Ed. 2026</span>
+      </div>
+      <div class="n-card reveal reveal-d1">
+        <div class="date">2026</div>
+        <h3>Open-Source M-Arc Photoreactor Published in React. Chem. Eng.</h3>
+        <p>The modular, 3D-printed M-Arc reactor demonstrated 3.25-fold improved photon delivery compared to commercial systems. All designs are freely available to the community.</p>
+        <span class="tag">React. Chem. Eng. 2026</span>
+      </div>
+      <div class="n-card reveal">
+        <div class="date">2024</div>
+        <h3>JOC Outstanding Publication of the Year Award</h3>
+        <p>Our work with the Bull group and Pfizer on photoredox-catalysed functionalisation of oxetanes and azetidines was recognised with the J. Org. Chem. Outstanding Publication Award.</p>
+        <span class="tag">Award</span>
+      </div>
+      <div class="n-card reveal reveal-d1">
+        <div class="date">Now</div>
+        <h3>PhD Positions Available — Catalytic Carbonylation for Peptide Synthesis</h3>
+        <p>Seeking ambitious students to explore new strategies for amide bond formation via catalytic carbonylative coupling within the IConIC Prosperity Partnership.</p>
+        <span class="tag">Open Position</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="publications">
+  <div class="container">
+    <div class="section-header"><span class="label">Publications</span><h2>Selected <em>Publications</em></h2></div>
+    <div class="pub-item reveal"><div class="pub-year">2026</div><div>
+      <div class="pub-title">Defluoroalkylation of Trifluoromethane with Organolithium Reagents: Mechanism and Synthesis of Fluoroalkenes</div>
+      <div class="pub-authors">H. R. Warsame, S. L. Patrick, J. A. Bull, P. W. Miller, M. R. Crimmin</div>
+      <div class="pub-journal"><b>Angew. Chem. Int. Ed.</b> 2026, 65 (1)</div>
+    </div></div>
+    <div class="pub-item reveal"><div class="pub-year">2026</div><div>
+      <div class="pub-title">An Accessible and Efficient 3D Printed Modular 'M-Arc' Photoreactor</div>
+      <div class="pub-authors">R. M. Bailey, M. Martínez-Aguirre, B. Schaefer, M. R. Crimmin, P. W. Miller</div>
+      <div class="pub-journal"><b>React. Chem. Eng.</b> 2026, 11, 228–233</div>
+    </div></div>
+    <div class="pub-item reveal"><div class="pub-year">2024</div><div>
+      <div class="pub-title">A Continuous Flow Process for the Defluorosilylation of HFC-23 and HFO-1234yf</div>
+      <div class="pub-authors">S. L. Patrick, D. J. Sheldon, M. R. Crimmin, P. W. Miller</div>
+      <div class="pub-journal"><b>Org. Lett.</b> 2024, 26, 8605–8609</div>
+    </div></div>
+    <div class="pub-item reveal"><div class="pub-year">2023</div><div>
+      <div class="pub-title">Visible Light Photoredox-Catalyzed Decarboxylative Alkylation of 3-Aryl-Oxetanes and Azetidines via Benzylic Tertiary Radicals</div>
+      <div class="pub-authors">M. A. J. Dubois, J. J. Rojas, A. J. Sterling, H. C. Broderick, M. A. Smith, A. J. P. White, P. W. Miller, C. Choi, J. J. Mousseau, F. Duarte, J. A. Bull</div>
+      <div class="pub-journal"><b>J. Org. Chem.</b></div>
+      <div class="pub-award"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>JOC 2024 Outstanding Publication Award</div>
+    </div></div>
+    <div class="pub-item reveal"><div class="pub-year">2020</div><div>
+      <div class="pub-title">Thermal Stability and Explosive Hazard Assessment of Diazo Compounds and Diazo Transfer Reagents</div>
+      <div class="pub-authors">S. P. Green, K. M. Wheelhouse, A. D. Payne, J. P. Hallett, P. W. Miller, J. A. Bull</div>
+      <div class="pub-journal"><b>Org. Process Res. Dev.</b> 2020, 24, 67–84</div>
+    </div></div>
+    <div class="pub-item reveal"><div class="pub-year">2019</div><div>
+      <div class="pub-title">Continuous Preparation and Reaction of Nonaflyl Azide (NfN₃) for the Synthesis of Organic Azides and 1,2,3-Triazoles</div>
+      <div class="pub-authors">S. P. Green, P. W. Miller et al.</div>
+      <div class="pub-journal">Telescoped flow synthesis of triazoles including the drug Rufinamide</div>
+    </div></div>
+    <div class="pub-footer">Full publication list on <a href="https://profiles.imperial.ac.uk/philip.miller/publications" target="_blank">Imperial Profiles</a> · <a href="https://scholar.google.com/citations?user=mFi7vNgAAAAJ&hl=en" target="_blank">Google Scholar</a> · <a href="https://orcid.org/0000-0002-8394-2516" target="_blank">ORCID</a></div>
+  </div>
+</section>
+
+<section class="section" id="people">
+  <div class="container">
+    <div class="section-header"><span class="label">People</span><h2>Our <em>Team</em></h2></div>
+    <p class="people-intro">The Miller Group brings together researchers from diverse backgrounds, united by a shared interest in applied synthesis at the interface of chemistry, engineering, and medicine.</p>
+    <div class="people-grid">
+      <div class="p-card is-pi reveal"><div class="p-avatar">PM</div><div class="p-name">Dr Philip W. Miller</div><div class="p-role">Principal Investigator</div></div>
+      <div class="p-card reveal reveal-d1"><div class="p-avatar">PD</div><div class="p-name">Postdoctoral Researchers</div><div class="p-role">Research Associates</div></div>
+      <div class="p-card reveal reveal-d2"><div class="p-avatar">PhD</div><div class="p-name">PhD Students</div><div class="p-role">Doctoral Candidates</div></div>
+      <div class="p-card reveal reveal-d3"><div class="p-avatar">MSc</div><div class="p-name">MSc &amp; MRes Students</div><div class="p-role">Masters Researchers</div></div>
+      <div class="p-card reveal reveal-d4"><div class="p-avatar">UG</div><div class="p-name">Undergraduate Projects</div><div class="p-role">MSci / UROP</div></div>
+    </div>
+    <p style="margin-top:2rem;font-size:.88rem;color:var(--text-light)">Interested in joining? We welcome enquiries from prospective students and postdocs — see <a href="#contact">Contact</a> for details.</p>
+  </div>
+</section>
+
+<section class="section section-alt" id="partners">
+  <div class="container partners-wrap">
+    <div class="section-header" style="text-align:center"><span class="label">Funding &amp; Collaborators</span><h2>Our <em>Partners</em></h2></div>
+    <div class="partner-grid">
+      <div class="partner-chip">EPSRC</div><div class="partner-chip">Cancer Research UK</div><div class="partner-chip">The Royal Society</div><div class="partner-chip">Research England</div><div class="partner-chip">BASF</div><div class="partner-chip">Chemetall</div><div class="partner-chip">Almac</div><div class="partner-chip">GSK</div><div class="partner-chip">Pfizer</div><div class="partner-chip">AM Technology</div><div class="partner-chip">CPI</div><div class="partner-chip">Mettler Toledo</div><div class="partner-chip">Siemens</div><div class="partner-chip">Sterling Pharma</div>
+    </div>
+    <div class="iconic-banner reveal">
+      <h3>IConIC Prosperity Partnership</h3>
+      <p>The Miller Group is a co-investigator within the <strong>Innovative Continuous Manufacturing for Industrial Chemicals (IConIC)</strong> programme — a £17.8M EPSRC Prosperity Partnership led by BASF and Imperial College London. The partnership aims to transform the manufacture of high-value chemicals through continuous flow processes.</p>
+      <span class="amount">£17.8M · EPSRC Prosperity Partnership · 5 Year Programme</span>
+    </div>
+  </div>
+</section>
+
+<section class="section section-dark" id="contact">
+  <div class="container">
+    <div class="section-header"><span class="label">Contact</span><h2>Get in <em>Touch</em></h2><p class="lead">We welcome enquiries from prospective PhD students, postdoctoral researchers, and potential collaborators.</p></div>
+    <div class="contact-grid">
+      <div class="contact-text">
+        <div class="contact-detail">
+          <div class="cd-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6" fill="none"/></svg></div>
+          <div><span class="cd-label">Email</span><span class="cd-value"><a href="mailto:philip.miller@imperial.ac.uk">philip.miller@imperial.ac.uk</a></span></div>
+        </div>
+        <div class="contact-detail">
+          <div class="cd-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div><span class="cd-label">Address</span><span class="cd-value">Molecular Sciences Research Hub<br>White City Campus, 80 Wood Lane<br>London W12 0BZ, United Kingdom</span></div>
+        </div>
+        <div class="contact-detail">
+          <div class="cd-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><path d="M9 22V12h6v10"/></svg></div>
+          <div><span class="cd-label">Department</span><span class="cd-value">Department of Chemistry<br>Imperial College London</span></div>
+        </div>
+        <div class="ext-links">
+          <a class="ext-link" href="https://profiles.imperial.ac.uk/philip.miller" target="_blank">Imperial Profile →</a>
+          <a class="ext-link" href="https://orcid.org/0000-0002-8394-2516" target="_blank">ORCID →</a>
+          <a class="ext-link" href="https://scholar.google.com/citations?user=mFi7vNgAAAAJ&hl=en" target="_blank">Google Scholar →</a>
+        </div>
+        <div class="phd-banner">
+          <h4>Open PhD Position</h4>
+          <p>Novel carbonylation homologation strategies for peptide bond formation — co-supervised with BASF within the IConIC Partnership. UK-resident applicants welcome. <a href="https://www.findaphd.com/phds/project/novel-carbonylation-homologation-strategies-for-peptide-bond-formation/?p194171=" target="_blank" style="color:var(--teal-light)">View details →</a></p>
+        </div>
+      </div>
+      <div class="contact-map">
+        <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#2ba5a5" stroke-width="1.2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <div class="map-name">Molecular Sciences Research Hub</div>
+        <div class="map-addr">White City Campus<br>Imperial College London<br>80 Wood Lane, London W12 0BZ</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <p>&copy; 2026 Miller Research Group · Department of Chemistry · <a href="https://www.imperial.ac.uk" target="_blank">Imperial College London</a></p>
+</footer>
+
+<script>
+document.getElementById('burger').addEventListener('click',()=>document.getElementById('navLinks').classList.toggle('open'));
+document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>document.getElementById('navLinks').classList.remove('open')));
+const nav=document.getElementById('siteNav');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>20),{passive:true});
+const sections=document.querySelectorAll('section[id]');
+function updateActive(){const y=window.scrollY+120;sections.forEach(s=>{const link=document.querySelector(`.nav-links a[href="#${s.id}"]`);if(link){if(y>=s.offsetTop&&y<s.offsetTop+s.offsetHeight)link.classList.add('active');else link.classList.remove('active')}})}
+window.addEventListener('scroll',updateActive,{passive:true});updateActive();
+const obs=new IntersectionObserver(e=>e.forEach(en=>{if(en.isIntersecting)en.target.classList.add('visible')}),{threshold:.08,rootMargin:'0px 0px -30px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
