@@ -1,21 +1,24 @@
 # Miller Research Group — Imperial College London
 
-Research group website for Dr Philip W. Miller, Associate Professor in Applied Synthesis, Department of Chemistry, Imperial College London.
+Research group website for **Dr Philip W. Miller**, Associate Professor in Applied Synthesis, Department of Chemistry, Imperial College London.
 
-## Live Site
+## Pages
 
-🌐 **[View the website](https://<your-username>.github.io/miller-research-group/)**
-
-## About
-
-The Miller Group operates at the intersection of chemistry, engineering, and medicine — focusing on flow chemistry, homogeneous catalysis, photocatalysis, microfluidics, coordination chemistry, and radiolabelling strategies for PET imaging.
+- **Home** (`index.html`) — Welcome & overview
+- **About** (`about.html`) — Biography & career timeline
+- **Research** (`research.html`) — Six research themes
+- **News** (`news.html`) — Latest highlights & announcements
+- **Publications** (`publications.html`) — Selected publications
+- **People** (`people.html`) — Group members
+- **Partners** (`partners.html`) — Funding & industry collaborators
+- **Contact** (`contact.html`) — Location, email & open positions
 
 ## Deployment
 
-This is a single-page static site deployed via GitHub Pages. To update, simply edit `index.html` and push.
+Static site hosted via GitHub Pages. No build step required.
 
-## Contact
+## Links
 
-- **Email:** philip.miller@imperial.ac.uk
-- **Imperial Profile:** https://profiles.imperial.ac.uk/philip.miller
-- **ORCID:** https://orcid.org/0000-0002-8394-2516
+- [Imperial College Profile](https://profiles.imperial.ac.uk/philip.miller)
+- [ORCID](https://orcid.org/0000-0002-8394-2516)
+- [Google Scholar](https://scholar.google.com/citations?user=mFi7vNgAAAAJ&hl=en)
