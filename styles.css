@@ -156,6 +156,7 @@ a:hover{color:var(--teal)}
 .about-card-top{background:linear-gradient(135deg,var(--imperial-dark),var(--imperial-mid));padding:2.5rem 2rem;text-align:center;position:relative}
 .about-card-top::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--teal-light),var(--accent-light))}
 .initials{font-family:var(--serif);font-size:3.5rem;font-weight:800;color:var(--teal-light);line-height:1;margin-bottom:.5rem}
+.pi-photo{width:120px;height:120px;border-radius:50%;object-fit:cover;border:3px solid rgba(43,165,165,.35);margin-bottom:.75rem}
 .about-card-top .name{font-family:var(--serif);font-size:1.15rem;font-weight:600;color:#fff}
 .about-card-top .role{font-size:.78rem;color:rgba(255,255,255,.55);margin-top:.25rem}
 .about-card-body{padding:1.5rem 1.75rem}
@@ -212,6 +213,7 @@ a:hover{color:var(--teal)}
 .p-avatar{width:64px;height:64px;border-radius:50%;margin:0 auto .8rem;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:1.2rem;font-weight:700}
 .p-card.is-pi .p-avatar{background:linear-gradient(135deg,var(--imperial-dark),var(--imperial-mid));color:var(--teal-light)}
 .p-card:not(.is-pi) .p-avatar{background:linear-gradient(135deg,rgba(0,62,116,.08),rgba(29,122,122,.12));color:var(--imperial)}
+.p-avatar-img{width:64px;height:64px;border-radius:50%;object-fit:cover;margin:0 auto .8rem;display:block;border:2px solid rgba(43,165,165,.3)}
 .p-name{font-family:var(--serif);font-size:.95rem;font-weight:600;color:var(--ink)}
 .p-role{font-size:.72rem;color:var(--text-light);margin-top:.2rem;text-transform:uppercase;letter-spacing:.04em}
 
