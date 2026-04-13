@@ -192,6 +192,8 @@ a:hover{color:var(--teal)}
 .tag{display:inline-block;margin-top:.6rem;font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--accent);background:rgba(196,93,44,.06);padding:.2rem .55rem;border-radius:3px}
 
 /* ── PUBLICATIONS ───────────────────────── */
+a.pub-item{text-decoration:none;color:inherit;transition:background .2s}
+a.pub-item:hover{background:rgba(0,0,0,.025)}
 .pub-item{display:grid;grid-template-columns:56px 1fr;gap:1rem;padding:1.35rem 0;border-bottom:1px solid var(--border-light)}
 .pub-item:first-child{border-top:1px solid var(--border-light)}
 .pub-year{font-family:var(--mono);font-size:.72rem;font-weight:500;color:var(--teal);padding-top:.15rem}
