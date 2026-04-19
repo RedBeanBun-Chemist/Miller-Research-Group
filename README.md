@@ -11,7 +11,6 @@ Research group website for **Dr Philip W. Miller**, Associate Professor in Appli
 - **Publications** (`publications.html`) — Selected publications
 - **People** (`people.html`) — Group members
 - **Join Us** (`join-us.html`) — Open positions, funding routes & how to apply
-- **Partners** (`partners.html`) — Funding & industry collaborators
 - **Contact** (`contact.html`) — Location, email & open positions
 
 ## Deployment
