@@ -273,6 +273,23 @@ a.pub-item:hover{background:rgba(0,0,0,.025)}
 }
 .member-link:hover{color:var(--imperial)}
 
+/* Alumni "current position" callout — used on the alumni grid */
+.member-now{
+  margin-top:.65rem;padding-top:.55rem;
+  border-top:1px dashed var(--border);
+  font-size:.82rem;line-height:1.45;color:var(--ink);
+}
+.member-now .now-label{
+  display:block;font-family:var(--mono);font-size:.6rem;font-weight:600;
+  text-transform:uppercase;letter-spacing:.14em;
+  color:var(--teal);margin-bottom:.2rem;
+}
+.member-now strong{font-weight:700;color:var(--ink)}
+.member-thesis{
+  font-size:.78rem;color:var(--text-light);font-style:italic;
+  margin-top:.2rem;line-height:1.4;
+}
+
 /* ── PROFILE PAGE ───────────────────────── */
 .profile-divider{
   text-align:center;margin-bottom:3rem;position:relative;
