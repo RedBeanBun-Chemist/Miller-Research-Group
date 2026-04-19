@@ -6,10 +6,11 @@ Research group website for **Dr Philip W. Miller**, Associate Professor in Appli
 
 - **Home** (`index.html`) — Welcome & overview
 - **About** (`about.html`) — Biography & career timeline
-- **Research** (`research.html`) — Six research themes
+- **Research** (`research.html`) — Three research themes
 - **News** (`news.html`) — Latest highlights & announcements
 - **Publications** (`publications.html`) — Selected publications
 - **People** (`people.html`) — Group members
+- **Join Us** (`join-us.html`) — Open positions, funding routes & how to apply
 - **Partners** (`partners.html`) — Funding & industry collaborators
 - **Contact** (`contact.html`) — Location, email & open positions
 

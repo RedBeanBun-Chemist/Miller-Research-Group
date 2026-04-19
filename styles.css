@@ -391,3 +391,255 @@ a.pub-item:hover{background:rgba(0,0,0,.025)}
   .hero-content{padding:7rem 1.5rem 4rem}
   .hero-deco{display:none}
 }
+/* ═══════════════════════════════════════════
+   ADDITIONS TO styles.css
+   — Append these rules to the existing styles.css.
+   — They use the same CSS variables already defined
+     at the top of your stylesheet, so no :root changes.
+   ═══════════════════════════════════════════ */
+
+
+/* ── NEWS PAGE ──────────────────────────── */
+
+.news-page{max-width:820px;margin:0 auto}
+
+.news-year{position:relative;margin:2.5rem 0 1.5rem}
+.news-year:first-child{margin-top:0}
+.news-year .year-mark{
+  font-family:var(--serif);font-size:2.2rem;font-weight:800;
+  color:var(--imperial-dark);line-height:1;
+  display:inline-block;padding-right:1rem;background:var(--cream);
+  position:relative;z-index:1;
+}
+.news-year::before{
+  content:'';position:absolute;top:50%;left:0;right:0;height:1px;
+  background:var(--border);z-index:0;
+}
+
+.news-entry{
+  display:grid;grid-template-columns:110px 1fr;gap:1.75rem;
+  padding:1.75rem 0;border-bottom:1px solid var(--border-light);
+  align-items:start;
+}
+.news-entry:last-of-type{border-bottom:none}
+
+.news-entry .entry-date{
+  font-family:var(--mono);font-size:.72rem;color:var(--text-light);
+  text-transform:uppercase;letter-spacing:.1em;padding-top:.4rem;
+}
+
+.news-entry h3{
+  font-family:var(--serif);font-size:1.2rem;font-weight:700;
+  color:var(--ink);line-height:1.35;margin-bottom:.55rem;
+}
+.news-entry h3 em{font-style:italic;color:var(--teal)}
+
+.news-entry .entry-body p{
+  font-size:.92rem;color:var(--text);line-height:1.7;
+  margin-bottom:.9rem;
+}
+
+.entry-meta{
+  display:flex;flex-wrap:wrap;align-items:center;gap:.75rem;
+  margin-top:.5rem;
+}
+.entry-link{
+  font-family:var(--sans);font-size:.82rem;font-weight:600;
+  color:var(--teal);letter-spacing:.01em;text-decoration:none;
+  transition:color .2s;
+}
+.entry-link:hover{color:var(--imperial)}
+
+/* Tag variants — all use the same base */
+.tag-paper{color:var(--imperial);background:rgba(0,62,116,.07)}
+.tag-award{color:var(--accent);background:rgba(196,93,44,.06)}
+.tag-open{color:var(--teal);background:rgba(29,122,122,.08)}
+.tag-people{color:#6a4c93;background:rgba(106,76,147,.06)}
+
+.news-end{text-align:center;margin-top:3rem;padding-top:2rem;border-top:1px solid var(--border-light)}
+.news-end p{font-size:.88rem;color:var(--text-mid)}
+
+@media(max-width:680px){
+  .news-entry{grid-template-columns:1fr;gap:.4rem}
+  .news-entry .entry-date{padding-top:0}
+  .news-year .year-mark{font-size:1.8rem}
+}
+
+
+/* ── JOIN US PAGE ───────────────────────── */
+
+.join-pillars{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;
+  margin-top:2.5rem;
+}
+.join-pillar{
+  background:var(--paper);border:1px solid var(--border);
+  border-radius:var(--radius);padding:2rem 1.75rem;
+  transition:transform .3s,box-shadow .3s,border-color .3s;
+}
+.join-pillar:hover{
+  transform:translateY(-3px);
+  box-shadow:0 8px 28px rgba(0,62,116,.06);
+  border-color:var(--teal-light);
+}
+.jp-num{
+  font-family:var(--mono);font-size:.72rem;font-weight:500;
+  color:var(--teal);letter-spacing:.15em;margin-bottom:1rem;
+}
+.join-pillar h3{
+  font-family:var(--serif);font-size:1.15rem;font-weight:700;
+  color:var(--ink);line-height:1.3;margin-bottom:.5rem;
+}
+.join-pillar p{
+  font-size:.88rem;color:var(--text-mid);line-height:1.7;
+}
+.join-pillar p strong{color:var(--ink);font-weight:600}
+
+/* Opening (feature card for an active PhD opening) */
+.opening-card{
+  background:var(--paper);border:1px solid var(--border);
+  border-left:3px solid var(--teal);
+  border-radius:var(--radius);padding:2rem 2.25rem;
+  max-width:880px;margin:0 auto 2rem;
+}
+.opening-tag{
+  display:inline-block;font-family:var(--mono);font-size:.68rem;
+  font-weight:500;color:var(--teal);text-transform:uppercase;
+  letter-spacing:.15em;background:rgba(29,122,122,.08);
+  padding:.3rem .75rem;border-radius:3px;margin-bottom:1rem;
+}
+.opening-card h3{
+  font-family:var(--serif);font-size:1.3rem;font-weight:700;
+  color:var(--ink);line-height:1.3;margin-bottom:.4rem;
+}
+.opening-sub{
+  font-size:.82rem;color:var(--text-light);
+  margin-bottom:1rem;font-style:italic;
+}
+.opening-card > p{
+  font-size:.94rem;color:var(--text);line-height:1.7;
+  margin-bottom:1.5rem;
+}
+.opening-meta{display:flex;flex-wrap:wrap;gap:.75rem}
+
+.opening-standing{
+  background:rgba(0,62,116,.03);border:1px solid var(--border-light);
+  border-radius:var(--radius);padding:1.75rem 2rem;
+  max-width:880px;margin:0 auto;
+}
+.opening-standing h4{
+  font-family:var(--serif);font-size:1rem;font-weight:700;
+  color:var(--imperial);margin-bottom:.75rem;
+}
+.opening-standing ul{
+  list-style:none;padding:0;
+}
+.opening-standing li{
+  font-size:.88rem;color:var(--text-mid);line-height:1.7;
+  padding-left:1.25rem;position:relative;margin-bottom:.6rem;
+}
+.opening-standing li::before{
+  content:'—';position:absolute;left:0;color:var(--teal);
+}
+.opening-standing li strong{color:var(--ink);font-weight:600}
+
+/* Funding cards */
+.funding-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;
+  margin-top:2.5rem;
+}
+.fund-card{
+  background:var(--paper);border:1px solid var(--border);
+  border-radius:var(--radius);padding:1.6rem 1.5rem;
+  transition:border-color .3s,transform .3s;
+  display:flex;flex-direction:column;
+}
+.fund-card:hover{border-color:var(--teal-light);transform:translateY(-2px)}
+.fund-card h3{
+  font-family:var(--serif);font-size:1.02rem;font-weight:700;
+  color:var(--ink);margin-bottom:.5rem;line-height:1.3;
+}
+.fund-card p{
+  font-size:.85rem;color:var(--text-mid);line-height:1.65;
+  flex-grow:1;
+}
+.fund-card p a{color:var(--teal);font-weight:500}
+.fund-link{
+  display:inline-block;margin-top:.9rem;
+  font-size:.76rem;font-weight:600;color:var(--teal);
+  text-transform:uppercase;letter-spacing:.04em;
+}
+
+/* What we look for */
+.what-grid{
+  display:grid;grid-template-columns:1.3fr 1fr;gap:3rem;
+  align-items:start;
+}
+.what-text p{
+  font-size:.95rem;color:var(--text);line-height:1.75;
+  margin-bottom:1.1rem;
+}
+.what-list{
+  list-style:none;padding:0;margin:1.25rem 0;counter-reset:what;
+}
+.what-list li{
+  font-size:.92rem;color:var(--text);line-height:1.7;
+  padding-left:2.2rem;position:relative;margin-bottom:1rem;
+  counter-increment:what;
+}
+.what-list li::before{
+  content:counter(what,decimal-leading-zero);
+  position:absolute;left:0;top:.05rem;
+  font-family:var(--mono);font-size:.72rem;font-weight:500;
+  color:var(--teal);letter-spacing:.08em;
+}
+.what-list li strong{color:var(--ink);font-weight:600}
+
+.what-photo{
+  border-radius:var(--radius);overflow:hidden;
+  border:1px solid var(--border-light);background:var(--paper);
+  position:sticky;top:100px;
+}
+.what-photo img{width:100%;display:block}
+.photo-caption{
+  font-family:var(--mono);font-size:.72rem;color:var(--text-light);
+  text-transform:uppercase;letter-spacing:.1em;
+  padding:.75rem 1rem;background:var(--warm);
+  border-top:1px solid var(--border-light);margin:0;
+}
+
+/* How to apply */
+.apply-wrap{max-width:780px;margin:0 auto}
+.apply-checklist{
+  background:var(--paper);border:1px solid var(--border);
+  border-radius:var(--radius);padding:2rem 2.25rem;
+  margin:2rem 0;
+}
+.apply-item{
+  display:grid;grid-template-columns:40px 1fr;gap:1rem;
+  padding:1rem 0;border-bottom:1px solid var(--border-light);
+  font-size:.92rem;color:var(--text);line-height:1.65;
+}
+.apply-item:last-child{border-bottom:none}
+.apply-item strong{color:var(--ink);font-weight:600}
+.apply-num{
+  font-family:var(--serif);font-size:1.3rem;font-weight:700;
+  color:var(--teal);line-height:1;
+}
+.apply-cta{
+  display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;
+  margin-top:2rem;
+}
+
+/* Responsive */
+@media(max-width:960px){
+  .join-pillars{grid-template-columns:1fr;gap:1rem;max-width:600px;margin-left:auto;margin-right:auto}
+  .funding-grid{grid-template-columns:1fr 1fr}
+  .what-grid{grid-template-columns:1fr;max-width:600px;margin-left:auto;margin-right:auto}
+  .what-photo{position:static}
+}
+@media(max-width:680px){
+  .funding-grid{grid-template-columns:1fr}
+  .opening-card,.opening-standing,.apply-checklist{padding:1.5rem 1.25rem}
+  .opening-card h3{font-size:1.1rem}
+}
