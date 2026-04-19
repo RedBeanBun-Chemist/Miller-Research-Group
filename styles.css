@@ -326,6 +326,14 @@ a.pub-item:hover{background:rgba(0,0,0,.025)}
   .members-grid{grid-template-columns:repeat(2,1fr);gap:1.25rem}
 }
 
+/* ── PARTNERS ───────────────────────────── */
+.partners-wrap{text-align:center}
+.partner-grid{display:flex;flex-wrap:wrap;gap:.75rem;justify-content:center;margin-top:2rem}
+.partner-chip{font-size:.82rem;font-weight:600;color:var(--text-mid);padding:.6rem 1.25rem;border-radius:var(--radius);border:1px solid var(--border);background:var(--paper);transition:border-color .3s,color .3s}
+.partner-chip:hover{border-color:var(--teal-light);color:var(--imperial)}
+.iconic-banner{margin-top:3rem;padding:2rem 2.5rem;border-radius:var(--radius);background:linear-gradient(135deg,rgba(0,62,116,.04),rgba(29,122,122,.04));border:1px solid rgba(29,122,122,.15);text-align:left;max-width:780px;margin-left:auto;margin-right:auto}
+.iconic-banner h3{font-family:var(--serif);font-size:1.15rem;font-weight:700;color:var(--imperial);margin-bottom:.4rem}
+.iconic-banner p{font-size:.88rem;color:var(--text-mid);line-height:1.65}
 .iconic-banner .amount{font-family:var(--mono);font-size:.75rem;font-weight:500;color:var(--teal);margin-top:.6rem;display:inline-block}
 
 /* ── CONTACT ────────────────────────────── */
