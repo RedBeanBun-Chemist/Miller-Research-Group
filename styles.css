@@ -420,12 +420,12 @@ a.pub-item:hover{background:rgba(0,0,0,.025)}
 
 .news-page{max-width:820px;margin:0 auto}
 
-.news-year{position:relative;margin:2.5rem 0 1.5rem}
+.news-year{position:relative;margin:3rem 0 1.5rem}
 .news-year:first-child{margin-top:0}
 .news-year .year-mark{
-  font-family:var(--serif);font-size:2.2rem;font-weight:800;
-  color:var(--imperial-dark);line-height:1;
-  display:inline-block;padding-right:1rem;background:var(--cream);
+  font-family:var(--serif);font-size:1.4rem;font-weight:700;
+  color:var(--ink);line-height:1;letter-spacing:.04em;
+  display:inline-block;padding-right:1.25rem;background:var(--cream);
   position:relative;z-index:1;
 }
 .news-year::before{
@@ -434,20 +434,21 @@ a.pub-item:hover{background:rgba(0,0,0,.025)}
 }
 
 .news-entry{
-  display:grid;grid-template-columns:110px 1fr;gap:1.75rem;
-  padding:1.75rem 0;border-bottom:1px solid var(--border-light);
+  display:grid;grid-template-columns:96px 1fr;gap:1.5rem;
+  padding:1.5rem 0;border-bottom:1px solid var(--border-light);
   align-items:start;
 }
 .news-entry:last-of-type{border-bottom:none}
 
 .news-entry .entry-date{
-  font-family:var(--mono);font-size:.72rem;color:var(--text-light);
-  text-transform:uppercase;letter-spacing:.1em;padding-top:.4rem;
+  font-family:var(--mono);font-size:.72rem;font-weight:500;
+  color:var(--teal);text-transform:uppercase;letter-spacing:.1em;
+  padding-top:.35rem;
 }
 
 .news-entry h3{
-  font-family:var(--serif);font-size:1.2rem;font-weight:700;
-  color:var(--ink);line-height:1.35;margin-bottom:.55rem;
+  font-family:var(--serif);font-size:1.1rem;font-weight:600;
+  color:var(--ink);line-height:1.4;margin-bottom:.45rem;
 }
 .news-entry h3 em{font-style:italic;color:var(--teal)}
 
@@ -471,7 +472,7 @@ a.pub-item:hover{background:rgba(0,0,0,.025)}
 .tag-paper{color:var(--imperial);background:rgba(0,62,116,.07)}
 .tag-award{color:var(--accent);background:rgba(196,93,44,.06)}
 .tag-open{color:var(--teal);background:rgba(29,122,122,.08)}
-.tag-people{color:#6a4c93;background:rgba(106,76,147,.06)}
+.tag-people{color:var(--imperial-mid);background:rgba(26,90,143,.08)}
 
 .news-end{text-align:center;margin-top:3rem;padding-top:2rem;border-top:1px solid var(--border-light)}
 .news-end p{font-size:.88rem;color:var(--text-mid)}
