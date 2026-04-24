@@ -138,7 +138,7 @@ a:hover{color:var(--teal)}
 .hero-actions{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;opacity:0;animation:rise .8s .9s forwards}
 .hero-logo{
   display:block;
-  width:clamp(320px,44vw,520px);height:auto;
+  width:clamp(420px,56vw,680px);height:auto;
   margin:.8rem auto .6rem;
   filter:drop-shadow(0 12px 32px rgba(0,0,0,.42));
   opacity:0;animation:rise .9s .35s forwards;
@@ -425,7 +425,7 @@ a.pub-item:hover{background:rgba(0,0,0,.025)}
   .welcome-grid{grid-template-columns:1fr}
   .section{padding:4rem 0}
   .hero-content{padding:4.5rem 1.5rem 3rem}
-  .hero-logo{width:clamp(240px,62vw,360px);margin:.5rem auto .4rem}
+  .hero-logo{width:clamp(280px,75vw,440px);margin:.5rem auto .4rem}
   .hero h1{white-space:normal}
 }
 /* ═══════════════════════════════════════════
