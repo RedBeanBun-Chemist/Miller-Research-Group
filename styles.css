@@ -44,10 +44,8 @@ a:hover{color:var(--teal)}
 .nav-brand{
   font-family:var(--serif);font-size:1.05rem;font-weight:700;
   color:var(--imperial-dark);text-decoration:none;
-  display:flex;align-items:center;
 }
 .nav-brand em{font-style:italic;color:var(--teal);font-weight:600}
-.nav-brand img{height:34px;width:auto;display:block}
 .nav-links{display:flex;gap:.15rem;list-style:none}
 .nav-links a{
   font-size:.78rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
@@ -128,21 +126,21 @@ a:hover{color:var(--teal)}
 .hero-bg{position:absolute;inset:0;background:linear-gradient(155deg,var(--imperial-dark) 0%,#0a3260 35%,#164b78 65%,var(--imperial-mid) 100%)}
 .hero-bg::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 70% 25%,rgba(29,122,122,.12) 0%,transparent 70%),radial-gradient(ellipse 40% 60% at 15% 80%,rgba(196,93,44,.06) 0%,transparent 60%)}
 .hero-pattern{position:absolute;inset:0;opacity:.035;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100'%3E%3Cpath d='M28 66L0 50L0 16L28 0L56 16L56 50L28 66L28 100' fill='none' stroke='%23ffffff' stroke-width='.6'/%3E%3Cpath d='M28 0L28 34L0 50L0 84L28 100L56 84L56 50L28 34' fill='none' stroke='%23ffffff' stroke-width='.6'/%3E%3C/svg%3E");background-size:56px 100px}
-.hero-content{position:relative;z-index:2;max-width:780px;padding:6rem 2rem 4.5rem}
+.hero-content{position:relative;z-index:2;max-width:840px;margin:0 auto;padding:6rem 2rem 4.5rem;text-align:center}
 .hero-badge{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--mono);font-size:.68rem;font-weight:500;color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:.2em;margin-bottom:2rem;opacity:0;animation:rise .8s .2s forwards}
 .hero-badge::before{content:'';display:block;width:28px;height:1px;background:var(--teal-light)}
-.hero h1{font-family:var(--serif);font-size:clamp(2.6rem,5.5vw,4.5rem);font-weight:800;color:#fff;line-height:1.08;margin-bottom:1.2rem;opacity:0;animation:rise .8s .35s forwards}
+.hero h1{font-family:var(--serif);font-size:clamp(1.9rem,5.2vw,4rem);font-weight:800;color:#fff;line-height:1.08;margin-bottom:1.2rem;white-space:nowrap;opacity:0;animation:rise .8s .35s forwards}
 .hero h1 .hl{display:inline;background:linear-gradient(120deg,var(--teal-light),#5ec4c4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .hero-sub{font-family:var(--serif);font-size:clamp(1.05rem,1.8vw,1.35rem);font-weight:400;font-style:italic;color:rgba(255,255,255,.6);margin-bottom:2.5rem;line-height:1.5;opacity:0;animation:rise .8s .6s forwards}
-.hero-pills{display:flex;flex-wrap:wrap;gap:.45rem;margin-bottom:2.5rem;opacity:0;animation:rise .8s .75s forwards}
+.hero-pills{display:flex;flex-wrap:wrap;justify-content:center;gap:.45rem;margin-bottom:2.5rem;opacity:0;animation:rise .8s .75s forwards}
 .pill{font-size:.7rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:rgba(255,255,255,.7);padding:.4rem .9rem;border-radius:100px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04);transition:border-color .3s,background .3s}
 .pill:hover{border-color:rgba(43,165,165,.4);background:rgba(43,165,165,.08)}
-.hero-actions{display:flex;gap:1rem;flex-wrap:wrap;opacity:0;animation:rise .8s .9s forwards}
+.hero-actions{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;opacity:0;animation:rise .8s .9s forwards}
 .hero-logo{
   display:block;
-  width:clamp(240px,32vw,360px);height:auto;
-  margin:.3rem 0 2rem;
-  filter:drop-shadow(0 10px 28px rgba(0,0,0,.4));
+  width:clamp(320px,44vw,520px);height:auto;
+  margin:.5rem auto 2.2rem;
+  filter:drop-shadow(0 12px 32px rgba(0,0,0,.42));
   opacity:0;animation:rise .9s .5s forwards;
 }
 
@@ -427,7 +425,8 @@ a.pub-item:hover{background:rgba(0,0,0,.025)}
   .welcome-grid{grid-template-columns:1fr}
   .section{padding:4rem 0}
   .hero-content{padding:4.5rem 1.5rem 3rem}
-  .hero-logo{width:clamp(200px,55vw,280px);margin:.2rem 0 1.5rem}
+  .hero-logo{width:clamp(240px,62vw,360px);margin:.3rem auto 1.6rem}
+  .hero h1{white-space:normal}
 }
 /* ═══════════════════════════════════════════
    ADDITIONS TO styles.css
