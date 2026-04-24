@@ -129,7 +129,7 @@ a:hover{color:var(--teal)}
 .hero-content{position:relative;z-index:2;max-width:840px;margin:0 auto;padding:6rem 2rem 4.5rem;text-align:center}
 .hero-badge{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--mono);font-size:.68rem;font-weight:500;color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:.2em;margin-bottom:2rem;opacity:0;animation:rise .8s .2s forwards}
 .hero-badge::before{content:'';display:block;width:28px;height:1px;background:var(--teal-light)}
-.hero h1{font-family:var(--serif);font-size:clamp(1.9rem,5.2vw,4rem);font-weight:800;color:#fff;line-height:1.08;margin-bottom:1.2rem;white-space:nowrap;opacity:0;animation:rise .8s .35s forwards}
+.hero h1{font-family:var(--serif);font-size:clamp(1.9rem,5.2vw,4rem);font-weight:800;color:#fff;line-height:1.08;margin-bottom:1.6rem;white-space:nowrap;opacity:0;animation:rise .8s .5s forwards}
 .hero h1 .hl{display:inline;background:linear-gradient(120deg,var(--teal-light),#5ec4c4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .hero-sub{font-family:var(--serif);font-size:clamp(1.05rem,1.8vw,1.35rem);font-weight:400;font-style:italic;color:rgba(255,255,255,.6);margin-bottom:2.5rem;line-height:1.5;opacity:0;animation:rise .8s .6s forwards}
 .hero-pills{display:flex;flex-wrap:wrap;justify-content:center;gap:.45rem;margin-bottom:2.5rem;opacity:0;animation:rise .8s .75s forwards}
@@ -139,9 +139,9 @@ a:hover{color:var(--teal)}
 .hero-logo{
   display:block;
   width:clamp(320px,44vw,520px);height:auto;
-  margin:.5rem auto 2.2rem;
+  margin:.8rem auto .6rem;
   filter:drop-shadow(0 12px 32px rgba(0,0,0,.42));
-  opacity:0;animation:rise .9s .5s forwards;
+  opacity:0;animation:rise .9s .35s forwards;
 }
 
 /* ── HOME: Welcome cards ────────────────── */
@@ -425,7 +425,7 @@ a.pub-item:hover{background:rgba(0,0,0,.025)}
   .welcome-grid{grid-template-columns:1fr}
   .section{padding:4rem 0}
   .hero-content{padding:4.5rem 1.5rem 3rem}
-  .hero-logo{width:clamp(240px,62vw,360px);margin:.3rem auto 1.6rem}
+  .hero-logo{width:clamp(240px,62vw,360px);margin:.5rem auto .4rem}
   .hero h1{white-space:normal}
 }
 /* ═══════════════════════════════════════════
