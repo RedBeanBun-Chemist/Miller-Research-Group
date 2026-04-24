@@ -122,11 +122,11 @@ a:hover{color:var(--teal)}
 .btn-outline-dark:hover{border-color:var(--teal);color:var(--teal)}
 
 /* ── HERO (home only) ───────────────────── */
-.hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;background:var(--imperial-dark)}
+.hero{min-height:50vh;display:flex;align-items:center;position:relative;overflow:hidden;background:var(--imperial-dark)}
 .hero-bg{position:absolute;inset:0;background:linear-gradient(155deg,var(--imperial-dark) 0%,#0a3260 35%,#164b78 65%,var(--imperial-mid) 100%)}
 .hero-bg::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 70% 25%,rgba(29,122,122,.12) 0%,transparent 70%),radial-gradient(ellipse 40% 60% at 15% 80%,rgba(196,93,44,.06) 0%,transparent 60%)}
 .hero-pattern{position:absolute;inset:0;opacity:.035;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100'%3E%3Cpath d='M28 66L0 50L0 16L28 0L56 16L56 50L28 66L28 100' fill='none' stroke='%23ffffff' stroke-width='.6'/%3E%3Cpath d='M28 0L28 34L0 50L0 84L28 100L56 84L56 50L28 34' fill='none' stroke='%23ffffff' stroke-width='.6'/%3E%3C/svg%3E");background-size:56px 100px}
-.hero-content{position:relative;z-index:2;max-width:780px;padding:8rem 2rem 6rem}
+.hero-content{position:relative;z-index:2;max-width:780px;padding:5rem 2rem 3.5rem}
 .hero-badge{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--mono);font-size:.68rem;font-weight:500;color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:.2em;margin-bottom:2rem;opacity:0;animation:rise .8s .2s forwards}
 .hero-badge::before{content:'';display:block;width:28px;height:1px;background:var(--teal-light)}
 .hero h1{font-family:var(--serif);font-size:clamp(2.6rem,5.5vw,4.5rem);font-weight:800;color:#fff;line-height:1.08;margin-bottom:.6rem;opacity:0;animation:rise .8s .35s forwards}
@@ -418,7 +418,7 @@ a.pub-item:hover{background:rgba(0,0,0,.025)}
   .news-grid{grid-template-columns:1fr}
   .welcome-grid{grid-template-columns:1fr}
   .section{padding:4rem 0}
-  .hero-content{padding:7rem 1.5rem 4rem}
+  .hero-content{padding:4rem 1.5rem 2.5rem}
   .hero-deco{display:none}
 }
 /* ═══════════════════════════════════════════
@@ -679,11 +679,12 @@ a.pub-item:hover{background:rgba(0,0,0,.025)}
    LOGOS — hero seal, footer wordmark, shield crest
    ═══════════════════════════════════════════ */
 
-/* Miller Group logo — hero seal (index.html) */
-.hero-logo{
-  display:block;width:min(300px,70%);height:auto;
-  margin-bottom:1.5rem;
-  opacity:0;animation:rise .8s .1s forwards;
+/* Miller Group logo — stands in for the word "Miller" inside the hero <h1> */
+.hero h1 .hero-logo{
+  display:block;
+  width:clamp(240px,40vw,380px);
+  height:auto;
+  margin:0 0 .3rem;
 }
 
 /* Imperial wordmark — site footer (all pages) */

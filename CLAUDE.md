@@ -25,7 +25,6 @@ If you are editing anything in those categories, assume you do not know the answ
 These files contain data that was generated as scaffolding and has **not** been verified against primary sources. Treat every name, date and destination here as unknown until a human has confirmed it.
 
 - **`alumni.html`** — intentionally empty. The earlier fictional PhD and postdoc entries have been removed. Card templates live inside HTML comments in each `.members-grid`; populate with real data only. Do not re-introduce invented names, years, thesis titles, or "Now at…" destinations.
-- **`news.html`** — the 2024 JOC award entry and the 2026 Angew. Chem. / React. Chem. Eng. entries were sourced via an earlier agent search. Re-verify the journal, year, volume, issue, page, and DOI before the site goes live.
 - **`about.html`** — Philip Miller's career dates (PhD / BSc years, institutions, postdoc location) should be cross-referenced against his [Imperial profile](https://profiles.imperial.ac.uk/philip.miller) and ORCID `0000-0002-8394-2516` before they leave the repo.
 - **`publications.html`** — individual publication rows were populated via agent tool search. Re-verify DOIs and author ordering before publishing.
 - **`contact.html`** — the map embed uses the address string `Molecular Sciences Research Hub, 82 Wood Lane, London W12 0BZ`. If you ever replace the embed with a coordinate-based version, verify the lat/lon against the Imperial White City campus map (approx. 51.5043°N, 0.2344°W) rather than trusting a generated number.
